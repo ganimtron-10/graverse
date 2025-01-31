@@ -4,6 +4,6 @@
 #include "graphics_interface.h"
 #include "utils.h"
 
-void ddaLine(GraphicsInterface* graphics, Point* p1, Point* p2);
+void ddaLine(GraphicsInterface* graphics, Point* p1, Point* p2, char color);
 
 #endif

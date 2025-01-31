@@ -28,9 +28,8 @@ project(GraVerse)
 
 #------------------------
 
-
 include_directories(include)
-add_library(${PROJECT_NAME} src/ddaLine.cpp src/terminal_adapter.cpp src/utils.cpp)
+add_library(${PROJECT_NAME} src/ddaLine.cpp src/raylib_adapter.cpp src/terminal_adapter.cpp src/utils.cpp)
 
 add_executable(line_dda demos/line_dda.cpp)
-target_link_libraries(line_dda ${PROJECT_NAME})
+target_link_libraries(line_dda ${PROJECT_NAME} -lraylib)

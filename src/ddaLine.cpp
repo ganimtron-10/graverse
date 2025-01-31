@@ -3,7 +3,7 @@
 #include "utils.h"
 #include "graphics_interface.h"
 
-void ddaLine(GraphicsInterface* graphics, Point* p1, Point* p2) {
+void ddaLine(GraphicsInterface* graphics, Point* p1, Point* p2, char color) {
 
     int xdiff = p2->x - p1->x;
     int ydiff = p2->y - p1->y;
@@ -18,7 +18,7 @@ void ddaLine(GraphicsInterface* graphics, Point* p1, Point* p2) {
 
 
     for (int i = 0; i < steps; ++i) {
-        graphics->putPixel((int)xi, (int)yi, '*');
+        graphics->putPixel((int)xi, (int)yi, color);
         xi += xinc;
         yi += yinc;
     }

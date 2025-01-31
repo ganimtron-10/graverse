@@ -3,7 +3,6 @@
 TerminalAdapter::TerminalAdapter(int width, int height) : GraphicsInterface(width, height) {}
 
 void TerminalAdapter::init() {
-    animate = true;
     screen.resize(SCREEN_HEIGHT);
     for (int i = 0; i < SCREEN_HEIGHT; i++) {
         screen[i] = std::vector<char>(SCREEN_WIDTH, ' ');

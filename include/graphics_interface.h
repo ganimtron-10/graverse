@@ -24,7 +24,7 @@ public:
 protected:
     const int SCREEN_WIDTH;
     const int SCREEN_HEIGHT;
-    bool animate = false;
+    bool animate = true;
 };
 
 #endif

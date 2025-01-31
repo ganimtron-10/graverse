@@ -4,9 +4,11 @@
 #include "graphics_interface.h"
 #include "terminal_adapter.h"
 
-GraphicsInterface* createGraphics(std::string type = "terminal") {
+std::unique_ptr<GraphicsInterface> createGraphics(const std::string& type, int width, int height) {
     if (type == "terminal") {
-        return new TerminalAdapter();
+        std::unique_ptr<GraphicsInterface> graphics = std::make_unique<TerminalAdapter>(width, height);
+        graphics->init();
+        return graphics;
     }
 
     return nullptr;

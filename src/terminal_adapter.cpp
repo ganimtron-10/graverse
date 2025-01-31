@@ -1,17 +1,18 @@
 #include "terminal_adapter.h"
 
-std::vector<std::vector<char>> TerminalAdapter::screen(MAX_Y, std::vector<char>(MAX_X, ' '));
+TerminalAdapter::TerminalAdapter(int width, int height) : GraphicsInterface(width, height) {}
 
 void TerminalAdapter::init() {
-    screen.resize(MAX_Y);
-    for (int i = 0; i < MAX_Y; i++) {
-        screen[i] = std::vector<char>(MAX_X, ' ');
+    animate = true;
+    screen.resize(SCREEN_HEIGHT);
+    for (int i = 0; i < SCREEN_HEIGHT; i++) {
+        screen[i] = std::vector<char>(SCREEN_WIDTH, ' ');
     }
 }
 
 void TerminalAdapter::clearScreen() {
-    for (int i = 0; i < MAX_Y; i++) {
-        for (int j = 0; j < MAX_X; j++) {
+    for (int i = 0; i < SCREEN_HEIGHT; i++) {
+        for (int j = 0; j < SCREEN_WIDTH; j++) {
             screen[i][j] = ' ';
         }
     }
@@ -19,8 +20,8 @@ void TerminalAdapter::clearScreen() {
 
 void TerminalAdapter::printScreen() {
     system("clear"); // system("cls");
-    for (int i = 0; i < MAX_Y; i++) {
-        for (int j = 0; j < MAX_X; j++) {
+    for (int i = 0; i < SCREEN_HEIGHT; i++) {
+        for (int j = 0; j < SCREEN_WIDTH; j++) {
             std::cout << screen[i][j];
         }
         std::cout << std::endl;
@@ -28,7 +29,7 @@ void TerminalAdapter::printScreen() {
 }
 
 void TerminalAdapter::putPixel(int x, int y, char color = '*') {
-    if (x < 0 or y < 0 or x >= MAX_X or y >= MAX_Y) {
+    if (x < 0 or y < 0 or x >= SCREEN_WIDTH or y >= SCREEN_HEIGHT) {
         return;
     }
 
@@ -40,14 +41,10 @@ void TerminalAdapter::putPixel(int x, int y, char color = '*') {
 }
 
 char TerminalAdapter::getPixel(int x, int y) {
-    if (x < 0 or y < 0 or x >= MAX_X or y >= MAX_Y) {
+    if (x < 0 or y < 0 or x >= SCREEN_WIDTH or y >= SCREEN_HEIGHT) {
         return '\0';
     }
 
     return screen[y][x];
-}
-
-void TerminalAdapter::sleep(int millisecond) {
-    std::this_thread::sleep_for(std::chrono::milliseconds(millisecond));
 }
 

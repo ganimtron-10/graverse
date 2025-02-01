@@ -5,6 +5,7 @@ RaylibAdapter::RaylibAdapter(int width, int height) : GraphicsInterface(width, h
 
 void RaylibAdapter::init() {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib window");
+    SetTargetFPS(60);
 }
 
 void RaylibAdapter::clearScreen() {

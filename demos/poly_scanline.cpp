@@ -32,7 +32,7 @@ void createConcavePolygon(GraphicsInterface* graphics, char color) {
     Polygon* poly = new Polygon();
     for (std::vector<int> point : points) {
         // cout << point[0] << " " << point[1] << endl;
-        poly->addPoint(new Point{ point[0] * 10, point[1] * 10 });
+        poly->addPoint(new Point{ point[0] * 5, point[1] * 5 });
     }
     poly->draw(graphics, color);
     poly->fill(graphics, color);

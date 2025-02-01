@@ -10,7 +10,7 @@ int main() {
 
     auto graphics = std::move(createGraphics("raylib", 500, 500));
     if (graphics) {
-        ddaLine(graphics.get(), new Point(10, 10), new Point(200, 200), 'R');
+        ddaLine(graphics.get(), new Point(20, 20), new Point(400, 200), 'R');
     }
 
     return 0;

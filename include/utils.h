@@ -1,7 +1,10 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#include<vector>
 #include<utility>
+
+#include "graphics_interface.h"
 
 class Point {
 public:
@@ -17,5 +20,14 @@ public:
     bool operator>(Point* otherPoint);
 };
 
+
+class Polygon {
+private:
+    std::vector<Point*> vertices;
+public:
+    void addPoint(Point* p);
+    void draw(GraphicsInterface* graphics, char color);
+    void fill(GraphicsInterface* graphics, char color);
+};
 
 #endif

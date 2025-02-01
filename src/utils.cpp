@@ -1,4 +1,5 @@
 #include "utils.h"
+#include "algo.h"
 
 Point::Point(Point* point) {
     this->x = point->x;
@@ -31,4 +32,21 @@ bool Point::operator>(Point* otherPoint) {
     else {
         return this->y > otherPoint->y;
     }
+}
+
+// Polygon
+
+void Polygon::addPoint(Point* p) {
+    vertices.push_back(p);
+}
+
+void Polygon::draw(GraphicsInterface* graphics, char color) {
+    for (int i = 0; i < vertices.size(); ++i) {
+        int j = (i + 1) % vertices.size();
+        ddaLine(graphics, vertices[i], vertices[j], color);
+    }
+}
+
+void Polygon::fill(GraphicsInterface* graphics, char color) {
+    scanLineFill(graphics, vertices, color);
 }

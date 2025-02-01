@@ -29,12 +29,12 @@ void RaylibAdapter::putPixel(int x, int y, char color = 'W') {
         return;
     }
 
-    DrawPixel(x, y, colorToRaylibColor(color));
+    // DrawPixel(x, y, colorToRaylibColor(color));
     if (animate) {
         BeginDrawing();
         DrawPixel(x, y, colorToRaylibColor(color));
         EndDrawing();
-        sleep(500);
+        sleep(5);
     }
 }
 

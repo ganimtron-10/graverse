@@ -29,7 +29,21 @@ project(GraVerse)
 #------------------------
 
 include_directories(include)
-add_library(${PROJECT_NAME} src/ddaLine.cpp src/raylib_adapter.cpp src/terminal_adapter.cpp src/utils.cpp)
+
+set(ALGOS 
+    src/algos/ddaLine.cpp 
+    src/algos/scanLineFill.cpp
+)
+
+set(ADAPTERS
+    src/adapter/raylib_adapter.cpp 
+    src/adapter/terminal_adapter.cpp
+)
+
+add_library(${PROJECT_NAME} ${ALGOS} ${ADAPTERS} src/utils.cpp)
 
 add_executable(line_dda demos/line_dda.cpp)
 target_link_libraries(line_dda ${PROJECT_NAME} -lraylib)
+
+add_executable(poly_scanline demos/poly_scanline.cpp)
+target_link_libraries(poly_scanline ${PROJECT_NAME} -lraylib)

@@ -5,5 +5,6 @@
 #include "utils.h"
 
 void ddaLine(GraphicsInterface* graphics, Point* p1, Point* p2, char color);
+void scanLineFill(GraphicsInterface* graphics, std::vector<Point*> vertices, char color);
 
 #endif

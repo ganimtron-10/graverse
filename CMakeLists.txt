@@ -32,6 +32,7 @@ include_directories(include)
 
 set(ALGOS 
     src/algos/ddaLine.cpp 
+    src/algos/bresenhamLine.cpp 
     src/algos/scanLineFill.cpp
 )
 
@@ -47,3 +48,7 @@ target_link_libraries(line_dda ${PROJECT_NAME} -lraylib)
 
 add_executable(poly_scanline demos/poly_scanline.cpp)
 target_link_libraries(poly_scanline ${PROJECT_NAME} -lraylib)
+
+
+add_executable(line_bresenham demos/line_bresenham.cpp)
+target_link_libraries(line_bresenham ${PROJECT_NAME} -lraylib)

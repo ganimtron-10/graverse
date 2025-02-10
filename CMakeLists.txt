@@ -34,6 +34,7 @@ set(ALGOS
     src/algos/ddaLine.cpp 
     src/algos/bresenhamLine.cpp 
     src/algos/scanLineFill.cpp
+    src/algos/cohenSutherland.cpp
 )
 
 set(ADAPTERS
@@ -49,6 +50,8 @@ target_link_libraries(line_dda ${PROJECT_NAME} -lraylib)
 add_executable(poly_scanline demos/poly_scanline.cpp)
 target_link_libraries(poly_scanline ${PROJECT_NAME} -lraylib)
 
-
 add_executable(line_bresenham demos/line_bresenham.cpp)
 target_link_libraries(line_bresenham ${PROJECT_NAME} -lraylib)
+
+add_executable(line_clipping_cohen_sutherland demos/line_clipping_cohen_sutherland.cpp)
+target_link_libraries(line_clipping_cohen_sutherland ${PROJECT_NAME} -lraylib)

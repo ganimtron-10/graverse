@@ -1,5 +1,5 @@
-#ifndef COMMON_H
-#define COMMON_H
+#ifndef UTILITY_H
+#define UTILITY_H
 
 #include<vector>
 #include<utility>

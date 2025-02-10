@@ -11,7 +11,7 @@ public:
     TerminalAdapter(int width, int height);
 
     void init() override;
-    void clearScreen();
+    void clearScreen() override;
     void printScreen();
     void putPixel(int x, int y, char color) override;
     char getPixel(int x, int y) override;

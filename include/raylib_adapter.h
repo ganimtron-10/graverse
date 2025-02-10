@@ -10,7 +10,7 @@ public:
     RaylibAdapter(int width, int height);
 
     void init() override;
-    void clearScreen();
+    void clearScreen() override;
     void putPixel(int x, int y, char color) override;
     char getPixel(int x, int y) override;
     Color colorToRaylibColor(char color);

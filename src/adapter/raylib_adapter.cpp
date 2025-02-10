@@ -1,4 +1,5 @@
 #include <raylib_adapter.h>
+#include<iostream>
 
 
 RaylibAdapter::RaylibAdapter(int width, int height) : GraphicsInterface(width, height) {}
@@ -9,7 +10,7 @@ void RaylibAdapter::init() {
 }
 
 void RaylibAdapter::clearScreen() {
-    ClearBackground(RAYWHITE);
+    ClearBackground(BLACK);
 }
 
 Color RaylibAdapter::colorToRaylibColor(char color) {
@@ -25,12 +26,12 @@ Color RaylibAdapter::colorToRaylibColor(char color) {
     }
 }
 
-void RaylibAdapter::putPixel(int x, int y, char color = 'W') {
+void RaylibAdapter::putPixel(int x, int y, char color) {
     if (x < 0 || y < 0 || x >= SCREEN_WIDTH || y >= SCREEN_HEIGHT) {
         return;
     }
 
-    // DrawPixel(x, y, colorToRaylibColor(color));
+    DrawPixel(x, y, colorToRaylibColor(color));
     if (animate) {
         BeginDrawing();
         DrawPixel(x, y, colorToRaylibColor(color));

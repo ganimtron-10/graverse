@@ -55,3 +55,6 @@ target_link_libraries(line_bresenham ${PROJECT_NAME} -lraylib)
 
 add_executable(line_clipping_cohen_sutherland demos/line_clipping_cohen_sutherland.cpp)
 target_link_libraries(line_clipping_cohen_sutherland ${PROJECT_NAME} -lraylib)
+
+add_executable(transformation demos/transformation.cpp)
+target_link_libraries(transformation ${PROJECT_NAME} -lraylib)
